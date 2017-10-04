@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.androidcurso.jefferson.whatsjeff.activity.SignUpActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/logo_width"
+        android:layout_height="@dimen/logo_heigth"
+        android:layout_marginTop="38dp"
+        app:srcCompat="@drawable/usuario"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editTextNomeSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:hint="@string/login_txt"
+        android:inputType="textPersonName"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/editTextEmailSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:hint="@string/hint_login_email"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/editTextNomeSignIn"
+        android:layout_alignLeft="@+id/editTextNomeSignIn"
+        android:layout_alignStart="@+id/editTextNomeSignIn" />
+
+    <EditText
+        android:id="@+id/editTextPasswordSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/editTextEmailSignIn"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/txt_password_login"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextPasswordSignIn"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/colorPrimary"
+        android:theme="@style/btnStandard"
+        android:text="@string/btn_cadastrar"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+</RelativeLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "380075925582",
+    "firebase_url": "https://whatsjeff-9fd86.firebaseio.com",
+    "project_id": "whatsjeff-9fd86",
+    "storage_bucket": "whatsjeff-9fd86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380075925582:android:a4b1fc018eb1f192",
+        "android_client_info": {
+          "package_name": "com.androidcurso.jefferson.whatsjeff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380075925582-meschgbsfl0p8hqraqsbofdultpdc5g9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.androidcurso.jefferson.whatsjeff",
+            "certificate_hash": "60a1466efca432b67d37393404314fbbc118bf16"
+          }
+        },
+        {
+          "client_id": "380075925582-382etp60j4f3kdeoek5jcuhm2tbijo3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKBRSf5uMSbJKB1hGHX4qS9qqI_DMppsY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380075925582-382etp60j4f3kdeoek5jcuhm2tbijo3m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

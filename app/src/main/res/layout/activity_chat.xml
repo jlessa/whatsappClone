@@ -10,11 +10,16 @@
     <include layout="@layout/toolbar"
         android:id="@+id/toolbarChat"></include>
     <ListView
+        android:id="@+id/listViewChat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
-    </ListView>
+        android:padding="8dp"
+        android:layout_below="@id/toolbarChat"
+        android:layout_above="@+id/linearLayoutChat"
+        ></ListView>
+
     <LinearLayout
+        android:id="@+id/linearLayoutChat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
@@ -22,7 +27,7 @@
         android:layout_alignParentBottom="true"
         >
         <EditText
-            android:id="@+id/editTextmessageChat"
+            android:id="@+id/editTextMessageChat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -1,15 +1,18 @@
 package com.androidcurso.jefferson.whatsjeff.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.androidcurso.jefferson.whatsjeff.R;
+import com.androidcurso.jefferson.whatsjeff.activity.ChatActivity;
 import com.androidcurso.jefferson.whatsjeff.adapter.ContactAdapter;
 import com.androidcurso.jefferson.whatsjeff.config.FirebaseConfig;
 import com.androidcurso.jefferson.whatsjeff.helper.UserSharedPreferences;
@@ -28,7 +31,7 @@ public class ContactFragment extends Fragment {
 
     private ListView listView;
     private ArrayAdapter adapter;
-    private ArrayList<User> listString;
+    private ArrayList<User> listContacts;
     private DatabaseReference firebase;
     private User currentUser;
     private ValueEventListener valueEventListener;
@@ -53,12 +56,12 @@ public class ContactFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        listString = new ArrayList<>();
+        listContacts = new ArrayList<>();
 
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
         listView = (ListView) view.findViewById(R.id.listViewContacts);
 
-        adapter = new ContactAdapter(getActivity(), listString);
+        adapter = new ContactAdapter(getActivity(), listContacts);
 
         listView.setAdapter(adapter);
 
@@ -66,10 +69,10 @@ public class ContactFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
-                    listString.clear();
+                    listContacts.clear();
                     currentUser = dataSnapshot.getValue(User.class);
                     for (User user : currentUser.getContacts()) {
-                        listString.add(user);
+                        listContacts.add(user);
                     }
                     adapter.notifyDataSetChanged();
                 }
@@ -82,6 +85,16 @@ public class ContactFragment extends Fragment {
 
         UserSharedPreferences sharedPreferences = new UserSharedPreferences(getActivity());
         firebase = FirebaseConfig.getFirebaseInstance().child("users").child(sharedPreferences.getCurrentUserId());
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ChatActivity.class);
+                intent.putExtra("userName", listContacts.get(i).getName());
+                intent.putExtra("userEmail", listContacts.get(i).getEmail());
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

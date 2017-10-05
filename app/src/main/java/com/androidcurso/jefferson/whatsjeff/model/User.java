@@ -1,8 +1,11 @@
 package com.androidcurso.jefferson.whatsjeff.model;
 
 import com.androidcurso.jefferson.whatsjeff.config.FirebaseConfig;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +32,12 @@ public class User {
         this.contacts = new ArrayList<>();
     }
 
+
     public void saveUser() {
         DatabaseReference firebase = FirebaseConfig.getFirebaseInstance();
         firebase.child("users").child(getId()).setValue(this);
     }
 
-
-    @Exclude
     public String getId() {
         return id;
     }

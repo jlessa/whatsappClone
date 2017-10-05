@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.androidcurso.jefferson.whatsjeff.activity.ChatActivity">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbarChat"></include>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+    </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        >
+        <EditText
+            android:id="@+id/editTextmessageChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/colorBack"
+            />
+        <ImageButton
+            android:id="@+id/btnSendChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_send"/>
+    </LinearLayout>
+
+</RelativeLayout>

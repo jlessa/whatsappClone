@@ -67,7 +67,7 @@ public class LoginEmailActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(LoginEmailActivity.this, "Sucesso Login", Toast.LENGTH_LONG).show();
                     UserSharedPreferences preferences = new UserSharedPreferences(LoginEmailActivity.this);
-                    preferences.saveCurrentUserPreference(Base64Custom.encodeBase64(user.getEmail()));
+                    preferences.saveCurrentUserPreference(Base64Custom.encodeBase64(user.getEmail()), user.getName(), user.getEmail());
                     goToMainActivity();
                     finish();
                 } else {
@@ -81,7 +81,8 @@ public class LoginEmailActivity extends AppCompatActivity {
     private void goToMainActivity() {
         startActivity(new Intent(LoginEmailActivity.this, MainActivity.class));
     }
-    private void isLogged(){
+
+    private void isLogged() {
         if (firebaseAuth.getCurrentUser() != null)
             goToMainActivity();
     }

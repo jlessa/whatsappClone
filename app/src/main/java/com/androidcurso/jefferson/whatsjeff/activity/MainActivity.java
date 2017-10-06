@@ -18,6 +18,7 @@ import com.androidcurso.jefferson.whatsjeff.R;
 import com.androidcurso.jefferson.whatsjeff.adapter.TabAdapter;
 import com.androidcurso.jefferson.whatsjeff.config.FirebaseConfig;
 import com.androidcurso.jefferson.whatsjeff.helper.Base64Custom;
+import com.androidcurso.jefferson.whatsjeff.helper.CurrentUser;
 import com.androidcurso.jefferson.whatsjeff.helper.SlidingTabLayout;
 import com.androidcurso.jefferson.whatsjeff.helper.UserSharedPreferences;
 import com.androidcurso.jefferson.whatsjeff.model.User;
@@ -40,7 +41,19 @@ public class MainActivity extends AppCompatActivity {
     private User currentUser;
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        CurrentUser.nullCurrentUser();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Toast.makeText(MainActivity.this, "Create Main Activity", Toast.LENGTH_LONG).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -97,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void logOut() {
         firebaseAuth.signOut();
+        CurrentUser.nullCurrentUser();
         startActivity(new Intent(MainActivity.this, LoginEmailActivity.class));
         finish();
     }

@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 
 public class CurrentUser extends Application {
-    private User currentUser;
+    private static User currentUser;
     private DatabaseReference firebase;
 
     @Override
@@ -24,8 +24,12 @@ public class CurrentUser extends Application {
             loadCurrentUser();
     }
 
-    public User getCurrentUser() {
+    public static User getCurrentUser() {
         return currentUser;
+    }
+
+    public static void nullCurrentUser() {
+        currentUser = null;
     }
 
     private void loadCurrentUser() {
@@ -35,7 +39,7 @@ public class CurrentUser extends Application {
         firebase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue() != null){
+                if (dataSnapshot.getValue() != null) {
                     currentUser = dataSnapshot.getValue(User.class);
                 }
             }

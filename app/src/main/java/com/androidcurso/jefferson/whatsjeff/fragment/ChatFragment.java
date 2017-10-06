@@ -67,7 +67,7 @@ public class ChatFragment extends Fragment {
 
         UserSharedPreferences userSharedPreferences = new UserSharedPreferences(getActivity());
 
-        firebase = FirebaseConfig.getFirebaseInstance().child("chats").child(userSharedPreferences.getCurrentUserId());
+        firebase = FirebaseConfig.getFirebaseInstance().child("users").child(userSharedPreferences.getCurrentUserId()).child("chats");
 
         valueEventListener = new ValueEventListener() {
             @Override

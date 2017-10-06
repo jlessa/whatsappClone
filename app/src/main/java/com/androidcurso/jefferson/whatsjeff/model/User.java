@@ -20,9 +20,11 @@ public class User {
     private String email;
     private String password;
     private List<User> contacts;
+    private List<Chat> chats;
 
     public User() {
         this.contacts = new ArrayList<>();
+        this.chats = new ArrayList<>();
     }
 
     public User(String name, String email, String password) {
@@ -30,6 +32,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.contacts = new ArrayList<>();
+        this.chats = new ArrayList<>();
     }
 
 
@@ -77,5 +80,18 @@ public class User {
 
     public void addContacts(User user) {
         this.contacts.add(user);
+    }
+
+    public List<Chat> getChats() {
+        return chats;
+    }
+
+    public void addChat(Chat chat) {
+        for (Chat singleChat : this.chats) {
+            if (chat.getUserToId().equals(singleChat.getUserToId())) {
+                this.chats.remove(singleChat);
+            }
+        }
+        this.chats.add(chat);
     }
 }
